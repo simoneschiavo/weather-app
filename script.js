@@ -33,12 +33,13 @@ async function getWeather(location) {
     const hours = now.getHours();
     const minutes = now.getMinutes();
     dateAndTime.innerText = `Today, ${formattedDate} ${hours}:${minutes}`;
+    weatherImage.src = "./img/rainy-day-2.png"
     const temperatureData = data.currentConditions.temp;
-    temperature.innerText = temperatureData;
+    temperature.innerText = `${temperatureData}°`;
     const conditionsData = data.currentConditions.conditions;
     conditions.innerText = conditionsData;
     const descriptionData = data.description;
     description.innerText = descriptionData;
 }
 
-//getWeather('london');
+getWeather('london');
