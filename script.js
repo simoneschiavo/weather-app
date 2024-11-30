@@ -35,6 +35,8 @@ async function getWeather(location) {
     dateAndTime.innerText = `Today, ${formattedDate} ${hours}:${minutes}`;
     const temperatureData = data.currentConditions.temp;
     temperature.innerText = temperatureData;
+    const conditionsData = data.currentConditions.conditions;
+    conditions.innerText = conditionsData;
 }
 
 //getWeather('london');
