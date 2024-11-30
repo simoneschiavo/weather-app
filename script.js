@@ -28,6 +28,11 @@ async function getWeather(location) {
 
     const cityNameData = data.resolvedAddress;
     cityName.innerText = cityNameData;
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    dateAndTime.innerText = `Today, ${formattedDate} ${hours}:${minutes}`;
 }
 
 //getWeather('london');
