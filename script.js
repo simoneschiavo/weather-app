@@ -37,6 +37,8 @@ async function getWeather(location) {
     temperature.innerText = temperatureData;
     const conditionsData = data.currentConditions.conditions;
     conditions.innerText = conditionsData;
+    const descriptionData = data.description;
+    description.innerText = descriptionData;
 }
 
 //getWeather('london');
