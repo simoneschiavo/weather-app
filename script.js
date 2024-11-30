@@ -22,7 +22,7 @@ body.appendChild(weatherInfoContainer);
 
 async function getWeather(location) {
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${visualCrossingKey}`
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${visualCrossingKey}&unitGroup=metric`
     );
     const data = await response.json();
 
@@ -33,6 +33,8 @@ async function getWeather(location) {
     const hours = now.getHours();
     const minutes = now.getMinutes();
     dateAndTime.innerText = `Today, ${formattedDate} ${hours}:${minutes}`;
+    const temperatureData = data.currentConditions.temp;
+    temperature.innerText = temperatureData;
 }
 
 //getWeather('london');
