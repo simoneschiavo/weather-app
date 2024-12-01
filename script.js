@@ -1,4 +1,5 @@
 const visualCrossingKey = "3U8A6THF3NYCX76N9T6G9PD8Y";
+const giphyKey = "PpZr2693AO0kM2kI84DeGQ2us3pNj3k8";
 const body = document.querySelector("body");
 
 const weatherInfoContainer = document.createElement("div");
@@ -33,13 +34,23 @@ async function getWeather(location) {
     const hours = now.getHours();
     const minutes = now.getMinutes();
     dateAndTime.innerText = `Today, ${formattedDate} ${hours}:${minutes}`;
-    weatherImage.src = "./img/rainy-day-2.png"
     const temperatureData = data.currentConditions.temp;
     temperature.innerText = `${temperatureData}°`;
     const conditionsData = data.currentConditions.conditions;
     conditions.innerText = conditionsData;
     const descriptionData = data.description;
     description.innerText = descriptionData;
+    getWeatherGif(conditionsData);
 }
 
-getWeather('london');
+async function getWeatherGif(weatherConditions) {
+    const weatherGif = `${weatherConditions}-weather`;
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/translate?api_key=${giphyKey}&s=${weatherGif}`
+    );
+    const data = await response.json();
+    const gifUrl = data.data.images.original.url;
+    weatherImage.src = gifUrl;
+}
+
+//getWeather('helsinki');

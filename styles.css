@@ -72,3 +72,8 @@ body {
     font-size: 4rem;
     font-weight: 800;
 }
+
+.weather-image {
+    height: 300px;
+    width: 300px;
+}
