@@ -1,6 +1,8 @@
 const visualCrossingKey = "3U8A6THF3NYCX76N9T6G9PD8Y";
 const giphyKey = "PpZr2693AO0kM2kI84DeGQ2us3pNj3k8";
 const body = document.querySelector("body");
+const formCityField = document.querySelector("form > input");
+const formSubmitButton = document.querySelector("form > button");
 
 const weatherInfoContainer = document.querySelector(".weather-info");
 const cityName = document.createElement("p");
@@ -50,4 +52,10 @@ async function getWeatherGif(weatherConditions) {
     weatherImage.src = gifUrl;
 }
 
-//getWeather('helsinki');
+formSubmitButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    const cityValue = formCityField.value;
+    getWeather(cityValue);
+})
+
+getWeather('helsinki');
